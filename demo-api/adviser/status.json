@@ -1,1 +1,1 @@
-{"available":true,"generated_utc":"2026-10-28T18:59:58.513435+00:00","status":"ATTENTION","counts":{"batches":4,"forecasts":954,"outcomes":0,"companies":79},"alerts":[{"code":"SOURCE_UNHEALTHY","source":"fi_short","last_run_utc":"2026-10-28T18:23:09+00:00"}],"decision_status":"LOCKED"}
+{"available":true,"generated_utc":"2026-10-28T18:59:58.513435+00:00","counts":{"batches":4,"forecasts":954,"outcomes":0,"companies":79},"decision_status":"LOCKED","alerts":[{"code":"SOURCE_UNHEALTHY","source":"fi_short","last_run_utc":"2026-10-28T18:23:09+00:00"}]}
