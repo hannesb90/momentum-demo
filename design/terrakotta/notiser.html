@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Notiser – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a}a:hover{color:#6f6560}
+.t-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.t-mut{color:#6f6560}
+.t-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:12px;font-weight:700;font-size:13px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+</style>
+</helmet>
+<div style="width:390px;height:1040px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 16px 40px;display:flex;flex-direction:column;gap:16px">
+<header style="display:flex;align-items:center;gap:10px">
+<a href="hem.html" aria-label="Tillbaka till Hem" style="width:44px;height:44px;border-radius:14px;background:#fff;border:1px solid #e9dcd3;display:flex;align-items:center;justify-content:center;color:#2e1f1a"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<h1 class="t-h" style="font-size:24px;flex:1">Notiser</h1>
+<span style="background:#b0573d;color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px">{{unread}} nya</span>
+</header>
+<div style="position:relative;display:flex;flex-direction:column;gap:14px;padding-left:22px">
+<span style="position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:#e9dcd3"></span>
+<sc-for list="{{items}}" as="n" hint-placeholder-count="5">
+<div style="position:relative">
+<span style="position:absolute;left:-22px;top:18px;width:14px;height:14px;border-radius:14px;background:{{n.dot}};border:3px solid #fbf6f1"></span>
+<div style="background:#fff;border:1px solid {{n.bd}};border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 30px rgba(46,31,26,.05)">
+<div style="display:flex;justify-content:space-between;gap:8px"><span style="font-size:11px;font-weight:800;letter-spacing:.06em;color:{{n.lab}}">{{n.k}}</span><span class="t-mut" style="font-size:12px">{{n.time}}</span></div>
+<strong style="font-size:16px">{{n.t}}</strong>
+<span style="font-size:14px;color:#6f6560;line-height:1.4">{{n.x}}</span>
+<sc-if value="{{n.act}}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:8px"><a href="{{n.href}}" class="t-btn" style="background:#b0573d;color:#fbf6f1">{{n.cta}}</a><button type="button" class="t-btn" style="background:#f3e8e1;color:#2e1f1a" onClick="{{n.done}}">Markera läst</button></div></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<a href="installningar.html" style="font-size:14px;font-weight:600;padding:8px 0;align-self:center">Välj vilka notiser du får</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1040}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={read:{}}; }
+renderVals() {
+const N=[['AFFÄRER','#2e1f1a','#2e1f1a','08:10','Modellen har 3 nya affärer','Sälj Nordea och ABB, köp Ferronordic.','handel.html','Granska'],['RAPPORT','#9a8f89','#7d5a1e','07:00','Inission rapporterar snart','3,9 % av din portfölj.','bolagssida.html','Öppna'],['RÅDGIVAREN','#2e1f1a','#2e1f1a','i går','Veckobrevet är klart','Stockholm +3 % trots AI-oro i USA.','radgivare.html','Läs'],['BEVAKNING','#4a705f','#4a705f','i går','Hanza nära köpnivå','Köps vid ny topp över 179 kr.','',''],['STOPPLARM','#8a3128','#8a3128','28 okt','Alleima såld','Modellen sålde 20 % under toppen.','','']];
+const r=this.state.read; let u=0;
+const items=N.map((x,i)=>{ const unread=!!x[6]&&!r[i]; if(unread)u++;
+return {k:x[0],dot:unread?x[1]:'#e9dcd3',lab:unread?x[2]:'#6f6560',time:x[3],t:x[4],x:x[5],href:x[6],cta:x[7],act:unread,bd:unread?'#e9dcd3':'#f0e6df',done:()=>this.setState({read:{...r,[i]:true}})}; });
+return { items, unread:u };
+}
+}
+</script>
+</body>
+</html>

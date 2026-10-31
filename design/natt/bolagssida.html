@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Bolagssida – Natt</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#f2ece8}a:hover{color:#a79ea3}
+.t-card{background:#1c191e;border:1px solid #2c272f;border-radius:24px;box-shadow:0 8px 30px rgba(0,0,0,.25);padding:18px}
+.t-h2{font-family:'Space Grotesk',Inter,sans-serif;font-size:17px;font-weight:600;margin:0}
+.t-eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#a79ea3}
+.t-mut{color:#a79ea3}
+.t-seg{display:flex;gap:2px;background:#26222a;border-radius:999px;padding:3px;align-self:flex-start}
+.t-seg a{min-height:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;font-size:13px;font-weight:600;color:#a79ea3;text-decoration:none;padding:8px 12px;border-radius:999px}
+.t-seg a.on{background:#f2ece8;color:#121014;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.t-tab{flex:1;min-height:44px;border:0;border-radius:999px;font:600 13px Inter,sans-serif;cursor:pointer}
+.t-kv{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #2c272f;font-size:14px}
+.num{font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div style="width:390px;height:1900px;position:relative;overflow:hidden;background:#121014;color:#f2ece8;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 16px 40px;display:flex;flex-direction:column;gap:16px">
+<header style="display:flex;align-items:center;gap:10px">
+<a href="bolag.html" aria-label="Tillbaka till Bolag" style="width:44px;height:44px;border-radius:14px;background:#1c191e;border:1px solid #2c272f;display:flex;align-items:center;justify-content:center;color:#f2ece8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<span style="flex:1"></span>
+<a href="#" style="height:44px;padding:0 14px;border-radius:14px;background:#1c191e;border:1px solid #2c272f;display:flex;align-items:center;color:#f2ece8;text-decoration:none;font-size:13px;font-weight:600">TradingView ↗</a>
+</header>
+<section style="display:flex;flex-direction:column;gap:4px">
+<span class="t-mut" style="font-size:13px">HOFI · Finans · Small cap</span>
+<h1 style="margin:0;font-family:'Space Grotesk',Inter,sans-serif;font-size:34px;font-weight:600;line-height:1.1">Hoist Finance</h1>
+<div style="display:flex;align-items:baseline;gap:12px"><span class="num" style="font-family:'Space Grotesk',Inter,sans-serif;font-size:44px;font-weight:600">192,30</span><span class="num" style="color:#5fd09a;font-weight:600">▲ 7,6 % 1 v</span></div>
+</section>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div style="background:#f08a6c;color:#121014;border-radius:18px;padding:12px"><div style="font-size:11px;font-weight:700;letter-spacing:.06em">RANG AV 120</div><div class="num" style="font-family:'Space Grotesk',Inter,sans-serif;font-size:26px;font-weight:600">2</div></div>
+<div class="t-card" style="padding:12px;border-radius:18px;box-shadow:none"><div class="t-eyebrow">Modell</div><div class="num" style="font-family:'Space Grotesk',Inter,sans-serif;font-size:26px;font-weight:600">3,1 %</div></div>
+<div class="t-card" style="padding:12px;border-radius:18px;box-shadow:none"><div class="t-eyebrow">Du äger</div><div class="num" style="font-family:'Space Grotesk',Inter,sans-serif;font-size:26px;font-weight:600">71 st</div></div>
+</div>
+<section class="t-card" style="display:flex;flex-direction:column;gap:10px;padding:14px">
+<div class="t-seg"><a href="#">1M</a><a href="#">3M</a><a href="#" class="on">1Å</a><a href="#">5Å</a></div>
+<svg width="100%" height="150" viewBox="0 0 342 150" preserveAspectRatio="none" role="img" aria-label="Kurs senaste året över 200-dagarssnittet">
+<path d="M0 150.0 L41.5 148.5 L82.9 141.9 L124.4 131.6 L165.8 120.5 L207.3 109.0 L248.7 94.3 L290.2 73.2 L331.6 56.3 L342.0 54.9" fill="none" stroke="#6e6570" stroke-width="1.8" stroke-dasharray="5 4"></path>
+<path d="M0 141.4 L10.5 136.0 L21.0 141.3 L31.6 144.6 L42.1 136.8 L52.6 133.1 L63.1 123.8 L73.7 122.4 L84.2 110.3 L94.7 110.0 L100.0 81.4 L110.5 91.0 L121.0 83.7 L131.5 82.4 L142.1 89.4 L152.6 64.7 L163.1 60.9 L173.6 92.4 L184.2 69.2 L194.7 54.2 L205.2 65.3 L215.7 62.8 L226.2 44.9 L236.8 42.9 L247.3 53.1 L252.6 6.4 L263.1 7.5 L273.6 13.1 L284.1 9.7 L294.6 21.0 L305.2 15.5 L315.7 23.0 L326.2 27.6 L336.7 38.9 L342.0 32.4" fill="none" stroke="#f08a6c" stroke-width="2.4" stroke-linecap="round"></path>
+<circle cx="257.8" cy="2.7" r="5" fill="#5fd09a" stroke="#fff" stroke-width="2"></circle>
+</svg>
+<div class="num" style="display:flex;gap:10px;font-size:12px;flex-wrap:wrap"><span class="t-mut">1 m <span style="color:#ff8a7a">−4,7</span></span><span class="t-mut">3 m <span style="color:#ff8a7a">−12,3</span></span><span class="t-mut">12 m <span style="color:#5fd09a">+101</span></span><span class="t-mut">från topp −13,2</span></div>
+<div class="t-mut" style="display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;align-items:center"><span style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:3px;border-radius:3px;background:#f08a6c"></span>Kurs</span><span style="display:flex;align-items:center;gap:6px"><span style="width:18px;border-top:2px dashed #6e6570"></span>Långsiktig trend (200 d)</span><span style="display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:9px;background:#5fd09a"></span>Modellens köp</span></div>
+</section>
+<div style="display:flex;gap:4px;background:#26222a;border-radius:999px;padding:3px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button type="button" class="t-tab" onClick="{{t.go}}" aria-pressed="{{t.on}}" style="background:{{t.bg}};color:{{t.fg}};box-shadow:{{t.sh}}">{{t.l}}</button></sc-for>
+</div>
+<sc-if value="{{t0}}" hint-placeholder-val="{{ true }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="display:flex;flex-direction:column"><span class="t-h" style="font-size:16px">AI-förvaltaren</span><span class="t-mut num" style="font-size:12px">Beslut 23 okt</span></span><span style="background:#5fd09a;color:#121014;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px">KÖP</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px" class="num">
+<div style="background:#26222a;border-radius:14px;padding:10px"><div class="t-mut" style="font-size:11px">Förvaltaren</div><strong class="t-h" style="font-size:18px">1,5&#8239;%</strong></div>
+<div style="background:#26222a;border-radius:14px;padding:10px"><div class="t-mut" style="font-size:11px">Modellen</div><strong class="t-h" style="font-size:18px">1,1&#8239;%</strong></div>
+<div style="background:#26222a;border-radius:14px;padding:10px"><div class="t-mut" style="font-size:11px">Osäkerhet</div><strong class="t-h" style="font-size:18px">Medel</strong></div>
+</div>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid #2c272f"><span class="t-mut" style="font-size:12px;font-weight:700;width:72px;flex:none;padding-top:1px">TES</span><span style="font-size:14px;line-height:1.4">Resultat +35&#8239;%, ROE 21&#8239;%, höjda mål</span></div>
+<div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid #2c272f"><span class="t-mut" style="font-size:12px;font-weight:700;width:72px;flex:none;padding-top:1px">SKÄL</span><span style="font-size:14px;line-height:1.4">Liten övervikt efter stark rapport</span></div>
+<div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid #2c272f"><span class="t-mut" style="font-size:12px;font-weight:700;width:72px;flex:none;padding-top:1px">MOTBEVIS</span><span style="font-size:14px;line-height:1.4">Under 175&#8239;kr inom 20 dagar</span></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px" class="num">
+<span style="font-size:12px;padding:6px 10px;border-radius:999px;background:#26222a">Slå index 20 d <strong>50&#8239;%</strong></span>
+<span style="font-size:12px;padding:6px 10px;border-radius:999px;background:#26222a">1 år <strong>46&#8239;%</strong></span>
+<span style="font-size:12px;padding:6px 10px;border-radius:999px;background:#26222a">Ras ≥ 20&#8239;% <strong>3&#8239;%</strong></span>
+</div>
+<a href="radgivare.html" style="font-weight:600;font-size:14px;padding:4px 0">Öppna tesfilen →</a>
+</section>
+<section class="t-card" style="padding:4px 18px">
+<div class="t-kv" style="border-top:0"><span class="t-mut">Vald vid månadsgenomgången 1 okt</span><strong>Ja</strong></div>
+<div class="t-kv"><span class="t-mut">Över långsiktig trend (200 d)</span><strong style="color:#5fd09a">Ja</strong></div>
+<div class="t-kv"><span class="t-mut">Modellens köp</span><strong>2 okt</strong></div>
+</section>
+</sc-if>
+<sc-if value="{{t1}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="padding:16px 18px">
+<table class="num" style="width:100%;border-collapse:collapse;font-size:14px">
+<thead><tr class="t-mut" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em"><th style="text-align:left;padding:6px 0">MSEK</th><th style="text-align:right">Q2 26</th><th style="text-align:right">R12</th></tr></thead>
+<tbody><tr style="border-top:1px solid #2c272f"><td style="padding:10px 0">Intäkter</td><td style="text-align:right">1 444</td><td style="text-align:right">4 943</td></tr><tr style="border-top:1px solid #2c272f"><td style="padding:10px 0">Rörelseresultat</td><td style="text-align:right">633</td><td style="text-align:right">1 863</td></tr><tr style="border-top:1px solid #2c272f"><td style="padding:10px 0">Nettoresultat</td><td style="text-align:right">450</td><td style="text-align:right">1 360</td></tr></tbody></table>
+<p class="t-mut" style="font-size:12px;margin:10px 0 0">Samma rapportrader som modellen läser. R12 = rullande tolv månader.</p>
+</section>
+<h2 class="t-h2">Pressmeddelanden</h2>
+<div class="t-card" style="display:flex;flex-direction:column;gap:12px;font-size:14px"><div><small class="t-mut num">26 okt</small><div>Valberedning utsedd inför årsstämman 2027</div></div><div style="border-top:1px solid #2c272f;padding-top:12px"><small class="t-mut num">23 okt · rapport</small><div>Delårsrapport Q3 2026</div></div></div>
+</sc-if>
+<sc-if value="{{t2}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="padding:4px 18px">
+<div class="t-kv" style="border-top:0"><span class="t-mut">Insyn netto 180 d</span><strong style="color:#5fd09a">Köp</strong></div>
+<div class="t-kv"><span class="t-mut">Senaste insynsköp</span><strong class="num">26 okt · 183,70 kr</strong></div>
+<div class="t-kv"><span class="t-mut">Blankning totalt</span><strong class="num">1,9 %</strong></div>
+<div class="t-kv"><span class="t-mut">Blankning FI ≥ 0,5 %</span><strong>Inga</strong></div>
+<div class="t-kv"><span class="t-mut">Ägare Avanza</span><strong class="num">6 457</strong></div>
+<div class="t-kv"><span class="t-mut">Ägare Nordnet</span><strong class="num">1 615</strong></div>
+</section>
+</sc-if>
+<sc-if value="{{t3}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:10px">
+<span class="t-mut" style="font-size:13px">Analytikernas kursmål · 2 st · köp</span>
+<div style="position:relative;height:40px"><div style="position:absolute;top:18px;left:0;right:0;height:4px;background:#26222a;border-radius:4px"></div><div style="position:absolute;top:12px;left:4%;right:20%;height:16px;background:#26222a;border-radius:8px"></div><div style="position:absolute;top:8px;left:46%;width:4px;height:24px;background:#f08a6c;border-radius:2px"></div></div>
+<div class="num" style="display:flex;justify-content:space-between;font-size:13px"><span class="t-mut">låg 181</span><strong>snitt 205,50</strong><span class="t-mut">hög 230</span></div>
+</section>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1900}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={t:0}; }
+renderVals() {
+const t=this.state.t;
+const tabs=['Förvaltaren','Rapporter','Ägare','Kursmål'].map((l,i)=>({l,on:String(i===t),bg:i===t?'#f2ece8':'transparent',fg:i===t?'#121014':'#a79ea3',sh:i===t?'0 2px 8px rgba(0,0,0,.3)':'none',go:()=>this.setState({t:i})}));
+return { tabs, t0:t===0, t1:t===1, t2:t===2, t3:t===3 };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Rådgivaren – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a}a:hover{color:#6f6560}
+.t-card{background:#fff;border:1px solid #e9dcd3;border-radius:24px;box-shadow:0 8px 30px rgba(46,31,26,.05);padding:18px}
+.t-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.t-mut{color:#6f6560}
+.num{font-variant-numeric:tabular-nums}
+.t-tab{flex:1;min-height:44px;border:0;border-radius:999px;font:600 13px Inter,sans-serif;cursor:pointer}
+.t-nav{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(251,246,241,.96);border-top:1px solid #e9dcd3;display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px}
+.t-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:#6f6560;text-decoration:none;width:64px;min-height:44px}
+.t-nav a.on{color:#b0573d}
+</style>
+</helmet>
+<div style="width:390px;height:1800px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 16px 104px;display:flex;flex-direction:column;gap:16px">
+<header style="display:flex;align-items:center;gap:12px">
+<span style="flex:1;display:flex;flex-direction:column"><span class="t-h" style="font-size:22px">AI-rådgivaren</span><span style="font-size:12px;color:#4a705f;font-weight:600">● Underlag klara · beslut låsta 30 okt</span></span>
+</header>
+<div class="t-card" style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:12px;font-weight:700;letter-spacing:.06em">VIKTIGAST NU</span><span style="line-height:1.5">Följ modellen om den säljer Nordea och ABB. Inission rapporterar snart, 5 % av portföljen.</span></div>
+<div style="display:flex;gap:4px;background:#f3e8e1;border-radius:999px;padding:3px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button type="button" class="t-tab" onClick="{{t.go}}" aria-pressed="{{t.on}}" style="background:{{t.bg}};color:{{t.fg}};box-shadow:{{t.sh}}">{{t.l}}</button></sc-for>
+</div>
+<sc-if value="{{t0}}" hint-placeholder-val="{{ true }}">
+<article class="t-card" style="display:flex;flex-direction:column;gap:14px;line-height:1.55">
+<span class="t-mut num" style="font-size:12px">Veckobrev 30 oktober 2026</span>
+<span class="t-h" style="font-size:24px;line-height:1.2">Stockholm +3 % trots fall i USA</span>
+<p style="margin:0"><strong style="color:#2e1f1a">Marknaden.</strong> Nasdaq föll nära 4 % på fredagen när oron för AI-utgifter växte. VIX steg från 17 till 22, högre än normalt men inte panik.</p>
+<p style="margin:0"><strong style="color:#2e1f1a">Modellens innehav.</strong> En affär i veckan: Alleima såldes på stoppnivån. Nordea och ABB väntas säljas efter genomgången.</p>
+<p style="margin:0"><strong style="color:#2e1f1a">Råd till dig.</strong> Följ modellen om den säljer Nordea och ABB. MSAB kan du hålla lägre om du vill ha mindre risk.</p>
+<p style="margin:0"><strong style="color:#2e1f1a">Nästa vecka.</strong> Faktiska order, Inissions rapport. Bevakar Hanza över 179 kr och Grängesberg över 185 kr.</p>
+<a href="#" style="font-weight:600;font-size:14px;padding:4px 0">Tidigare brev</a>
+</article>
+</sc-if>
+<sc-if value="{{t1}}" hint-placeholder-val="{{ false }}">
+<div class="t-mut num" style="font-size:13px">19 avvikelser från modellen · 255 prognoser</div>
+<sc-for list="{{dev}}" as="d" hint-placeholder-count="5">
+<a href="bolagssida.html" class="t-card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:#2e1f1a">
+<div style="display:flex;align-items:center;gap:10px"><span style="font-size:11px;font-weight:800;padding:4px 8px;border-radius:8px;background:{{d.bg}};color:{{d.fg}}">{{d.a}}</span><strong style="flex:1">{{d.n}}</strong><span class="num t-mut" style="font-size:13px">{{d.w}}</span></div>
+<span style="font-size:13px;color:#6f6560;line-height:1.4">{{d.why}}</span>
+</a>
+</sc-for>
+</sc-if>
+<sc-if value="{{t2}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:14px">
+<span class="t-mut" style="font-size:13px">Förvaltarens portfölj mot modellen · 3 dagar</span>
+<div style="display:flex;gap:16px;align-items:flex-end"><div><div class="t-mut" style="font-size:12px">Förvaltaren</div><div class="t-h num" style="font-size:36px;color:#4a705f">+1,2 %</div></div><div><div class="t-mut" style="font-size:12px">Modellen</div><div class="t-h num" style="font-size:26px">+0,7 %</div></div></div>
+<svg width="100%" height="90" viewBox="0 0 300 90" role="img" aria-label="Förvaltarens portfölj före modellen tre dagar i rad"><path d="M0 80 L100 60 L200 40 L300 10" fill="none" stroke="#2e1f1a" stroke-width="2.6"></path><path d="M0 80 L100 66 L200 52 L300 34" fill="none" stroke="#9a8f89" stroke-width="2"></path></svg>
+<div class="num" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;font-size:13px"><div style="background:#f3e8e1;border-radius:12px;padding:10px"><div class="t-mut" style="font-size:11px">Aktier</div>85 %</div><div style="background:#f3e8e1;border-radius:12px;padding:10px"><div class="t-mut" style="font-size:11px">Max ras</div>−0,03 %</div><div style="background:#f3e8e1;border-radius:12px;padding:10px"><div class="t-mut" style="font-size:11px">Affärer</div>16/250</div></div>
+<span class="t-mut" style="font-size:13px;line-height:1.45">Förvaltarens portfölj är en testportfölj som jämförs med modellen. Skillnaden kommer mest från att ABB och Alleima såldes tidigt. För kort tid för att säga något om förmåga.</span>
+</section>
+</sc-if>
+<sc-if value="{{t3}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+<span class="t-h" style="font-size:20px">Inget facit än</span>
+<span class="t-mut" style="line-height:1.5">1 407 prognoser för 85 bolag väntar. Första avgörs 27 november (20 dagars sikt). Då syns om förvaltaren träffar bättre än slumpen.</span>
+<div style="width:100%;display:flex;flex-direction:column;gap:8px" class="num">
+<div style="display:flex;justify-content:space-between;font-size:13px"><span>Slå index</span><span class="t-mut">0 avgjorda</span></div><div style="height:8px;background:#f3e8e1;border-radius:8px"></div>
+<div style="display:flex;justify-content:space-between;font-size:13px"><span>Ras ≥ 20 %</span><span class="t-mut">0 avgjorda</span></div><div style="height:8px;background:#f3e8e1;border-radius:8px"></div>
+</div>
+</section>
+</sc-if>
+<div class="t-card" style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center"><span class="t-mut" style="font-size:13px">Driftstatus · 6 batcher · inga larm</span><a href="#" style="font-size:13px;font-weight:600;padding:8px 0">Om rådgivaren</a></div>
+</div>
+<nav class="t-nav" aria-label="Huvudmeny">
+<a href="hem.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16v13H4z"></path><path d="M9 7V4h6v3M4 12h16"></path></svg>Hem</a>
+<a href="modell.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17l5-6 4 4 5-7 4 5M3 21h18"></path></svg>Modell</a>
+<a href="bolag.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M3 12h18"></path></svg>Bolag</a>
+<a href="marknad.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6.5 4"></path></svg>Marknad</a>
+<a href="radgivare.html" class="on"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 3h6v4H9z"></path><path d="M7 5H5v16h14V5h-2M8 12h8M8 16h5"></path></svg>Rådgivare</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1800}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={t:0}; }
+renderVals() {
+const t=this.state.t;
+const tabs=['Brev','Beslut','Portfölj','Facit'].map((l,i)=>({l,on:String(i===t),bg:i===t?'#fff':'transparent',fg:i===t?'#2e1f1a':'#6f6560',sh:i===t?'0 2px 8px rgba(46,31,26,.08)':'none',go:()=>this.setState({t:i})}));
+const st={SÄLJ:['#8a3128','#fff'],MINSKA:['#8a6420','#fff'],NY:['#4a705f','#fff']};
+const dev=[['SÄLJ','Nordea Bank','11,8 → 0 %','Under långsiktig trend (200 dagar), topplistan hoppar över bolaget.'],['SÄLJ','ABB','5,5 → 0 %','18,5 % under toppen, månadsgenomgången väntas sälja.'],['MINSKA','MSAB','6,3 → 4,0 %','Svänger mycket och teknikchefen slutar.'],['NY','Investor B','0 → 3,8 %','Stängde nära sin högsta nivå efter rapporten.'],['NY','Arjo','0 → 1,5 %','Har hållit uppgången efter stark rapport.']].map(x=>({a:x[0],bg:st[x[0]][0],fg:st[x[0]][1],n:x[1],w:x[2],why:x[3]}));
+return { tabs, dev, t0:t===0, t1:t===1, t2:t===2, t3:t===3 };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Handel – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a}a:hover{color:#6f6560}
+.t-card{background:#fff;border:1px solid #e9dcd3;border-radius:20px;box-shadow:0 8px 30px rgba(46,31,26,.05);padding:18px}
+.t-h2{font-family:'Space Grotesk',Inter,sans-serif;font-size:21px;font-weight:600;margin:0}
+.t-mut{color:#6f6560}
+.num{font-variant-numeric:tabular-nums}
+.t-btn{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+</style>
+</helmet>
+<div style="width:390px;height:1300px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:8px 16px 40px;display:flex;flex-direction:column;gap:16px">
+<header style="display:flex;align-items:center;gap:10px">
+<a href="hem.html" aria-label="Tillbaka till Hem" style="width:44px;height:44px;border-radius:999px;background:#fff;border:1px solid #e9dcd3;display:flex;align-items:center;justify-content:center;color:#2e1f1a"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:22px;font-weight:600;flex:1">Följ modellen</span>
+<span class="num t-mut" style="font-size:13px">{{pos}} av 3</span>
+</header>
+<div style="display:flex;gap:6px"><sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><span style="flex:1;height:4px;border-radius:4px;background:{{d.c}}"></span></sc-for></div>
+<sc-if value="{{notDone}}" hint-placeholder-val="{{ true }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:16px;padding:22px;border-color:{{cur.ring}}">
+<span style="align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.08em;padding:6px 12px;border-radius:999px;background:{{cur.bg}};color:{{cur.fg}}">{{cur.side}}</span>
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:32px;font-weight:600;line-height:1.1">{{cur.name}}</span>
+<span class="num" style="font-family:'Space Grotesk',Inter,sans-serif;font-size:40px;font-weight:600">{{cur.amt}}</span>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<div style="background:#f3e8e1;border-radius:14px;padding:12px"><div class="t-mut" style="font-size:12px">Vikt</div><div class="num" style="font-weight:700">{{cur.w}}</div></div>
+<div style="background:#f3e8e1;border-radius:14px;padding:12px"><div class="t-mut" style="font-size:12px">Antal</div><div class="num" style="font-weight:700">{{cur.n}}</div></div>
+</div>
+<p style="margin:0;line-height:1.5;color:#6f6560">{{cur.why}}</p>
+<a href="#" class="t-btn" style="background:#b0573d;color:#fbf6f1">Öppna i Montrose</a>
+<button type="button" class="t-btn" style="background:#f3e8e1;color:#2e1f1a" onClick="{{next}}">Klar – nästa</button>
+</section>
+</sc-if>
+<sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;padding:32px 22px">
+<span style="width:64px;height:64px;border-radius:64px;background:#4a705f;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+<span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:26px;font-weight:600">Allt granskat</span>
+<span class="t-mut">Portföljen följer modellen igen.</span>
+<button type="button" class="t-btn" style="background:#f3e8e1;color:#2e1f1a;width:100%" onClick="{{reset}}">Börja om</button>
+</section>
+</sc-if>
+<h2 class="t-h2" style="margin-top:4px">Översikt</h2>
+<div class="t-card" style="padding:6px 16px">
+<sc-for list="{{list}}" as="t" hint-placeholder-count="3">
+<div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid {{t.line}}">
+<span style="width:28px;height:28px;border-radius:999px;background:{{t.dotbg}};color:{{t.dotfg}};font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">{{t.mark}}</span>
+<span style="flex:1">{{t.name}}</span><span class="num t-mut">{{t.amt}}</span></div>
+</sc-for>
+</div>
+<div class="t-card" style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:13px">Behåll 13 · 2 justeringar under 1 000 kr bromsas</span><a href="#" style="font-size:14px;font-weight:600;padding:6px 0">Visa detaljer</a></div>
+<div class="t-card" style="display:flex;align-items:center;gap:12px">
+<span style="flex:1;display:flex;flex-direction:column;gap:2px"><span class="t-mut" style="font-size:12px">Månadsinsättning</span><strong class="num">7 000 kr den 25:e</strong></span>
+<a href="installningar.html" style="font-weight:600;font-size:14px;padding:10px 0">Ändra</a></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1300}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={i:0}; }
+renderVals() {
+const S={side:'SÄLJ',bg:'#8a3128',fg:'#fff',ring:'#f6e0dc'}, K={side:'KÖP',bg:'#4a705f',fg:'#fff',ring:'#e6efe9'};
+const T=[
+{...S,name:'Nordea Bank',amt:'33 385 kr',w:'6,6 % → 0',n:'193 st',why:'Under långsiktig trend (200 dagar) och rang 29 av 120. Förvaltaren har redan sålt sin del.'},
+{...S,name:'ABB',amt:'22 163 kr',w:'4,4 % → 0',n:'25 st',why:'Under långsiktig trend (200 dagar), 18 % under toppen. Topplistan hoppar över bolaget.'},
+{...K,name:'Ferronordic',amt:'25 200 kr',w:'0 → 5,0 %',n:'≈ 96 st',why:'Rang 3 av 120, +39 % på tre månader. Ny i portföljen.'}];
+const i=this.state.i, done=i>=T.length;
+const cur=T[Math.min(i,T.length-1)];
+return {
+cur, done, notDone:!done, pos:Math.min(i+1,3),
+dots:T.map((t,k)=>({c:k<i?'#4a705f':k===i?'#b0573d':'#e9dcd3'})),
+list:T.map((t,k)=>({name:t.name+' · '+t.side.toLowerCase(),amt:t.amt,mark:k<i?'✓':String(k+1),dotbg:k<i?'#4a705f':k===i?'#b0573d':'#f3e8e1',dotfg:k<=i?'#fff':'#6f6560',line:k===0?'transparent':'#f0e6df'})),
+next:()=>this.setState({i:i+1}), reset:()=>this.setState({i:0})
+};
+}
+}
+</script>
+</body>
+</html>

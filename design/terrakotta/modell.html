@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Modell – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a}a:hover{color:#6f6560}
+.t-card{background:#fff;border:1px solid #e9dcd3;border-radius:24px;box-shadow:0 8px 30px rgba(46,31,26,.05);padding:18px}
+.t-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.t-mut{color:#6f6560}
+.num{font-variant-numeric:tabular-nums}
+.t-tab{flex:1;min-height:44px;border:0;border-radius:999px;font:600 14px Inter,sans-serif;cursor:pointer}
+.t-in{background:#fbf6f1;border:1px solid #e9dcd3;border-radius:14px;color:#2e1f1a;font:600 17px Inter,sans-serif;padding:12px 14px}
+.t-nav{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(251,246,241,.96);border-top:1px solid #e9dcd3;display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px}
+.t-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:#6f6560;text-decoration:none;width:64px;min-height:44px}
+.t-nav a.on{color:#b0573d}
+</style>
+</helmet>
+<div style="width:390px;height:2000px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 16px 104px;display:flex;flex-direction:column;gap:16px">
+<header style="display:flex;align-items:center;justify-content:space-between"><h1 class="t-h" style="font-size:28px">Modellen</h1><span style="font-size:12px;font-weight:700;color:#4a705f;background:#e6efe9;padding:6px 10px;border-radius:999px">● Verifierad 29.10</span></header>
+<div style="display:flex;gap:4px;background:#f3e8e1;border-radius:999px;padding:3px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button type="button" class="t-tab" onClick="{{t.go}}" aria-pressed="{{t.on}}" style="background:{{t.bg}};color:{{t.fg}};box-shadow:{{t.sh}}">{{t.l}}</button></sc-for>
+</div>
+
+<sc-if value="{{isOver}}" hint-placeholder-val="{{ true }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="t-mut" style="font-size:13px">100 kr i jan 2020 är i dag</span><a href="#" style="font-size:13px;font-weight:600;text-decoration:none;padding:6px 0">Om modellen</a></div>
+<span class="t-h num" style="font-size:52px;letter-spacing:-.02em">638 kr</span>
+<div class="num t-mut" style="display:flex;gap:12px;font-size:13px"><span>OMXS30 219 kr</span><span>All World 236 kr</span></div>
+<svg width="100%" height="130" viewBox="0 0 342 140" preserveAspectRatio="none" role="img" aria-label="Modellen mot OMXS30 och All World sedan 2020">
+<path d="M0 133.2 L13.7 129.8 L27.4 121.9 L41.0 117.7 L54.7 108.2 L68.4 103.1 L82.1 89.1 L95.8 83.4 L109.4 84.6 L123.1 86.5 L136.8 87.8 L150.5 75.7 L164.2 70.1 L177.8 71.3 L191.5 74.8 L205.2 60.1 L218.9 40.2 L232.6 41.1 L246.2 38.9 L259.9 48.5 L273.6 32.1 L287.3 24.8 L301.0 11.4 L314.6 3.5 L328.3 6.0 L342.0 4.6" fill="none" stroke="#b0573d" stroke-width="2.6" stroke-linecap="round"></path>
+<path d="M0 133.2 L41.7 133.4 L83.4 127.8 L125.1 128.0 L166.8 125.0 L208.5 117.8 L250.2 110.2 L292.0 110.7 L333.7 100.9 L342.0 100.6" fill="none" stroke="#2e1f1a" stroke-width="1.6" stroke-dasharray="5 4"></path>
+<path d="M0 133.2 L41.0 134.1 L82.1 124.7 L123.1 130.1 L164.2 124.5 L205.2 121.5 L246.2 119.7 L287.3 113.7 L328.3 105.4 L342.0 104.7" fill="none" stroke="#9a8f89" stroke-width="1.6"></path>
+</svg>
+<div class="num" style="display:flex;gap:14px;font-size:12px;color:#6f6560;flex-wrap:wrap"><span><span style="color:#b0573d">●</span> Modellen</span><span><span style="color:#2e1f1a">●</span> All World</span><span><span style="color:#9a8f89">●</span> OMXS30</span></div>
+</section>
+<section style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4"><div class="t-card" style="padding:14px;border-radius:18px;box-shadow:none"><div class="t-mut" style="font-size:12px">{{k.l}}</div><div class="t-h num" style="font-size:24px;color:{{k.c}}">{{k.v}}</div></div></sc-for>
+</section>
+<section style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;flex-direction:column;gap:4px"><h2 class="t-h" style="font-size:18px">Bolag enligt modellen</h2><span style="font-size:13px;color:#6f6560;line-height:1.4">Modellens målvikter, 15 aktier och 10 % kassa. Det här är inte dina innehav – dem ser du på Hem.</span></div>
+<div class="t-card" style="display:flex;flex-direction:column;gap:6px;padding:16px 16px 4px">
+<div style="display:flex;height:14px;border-radius:14px;overflow:hidden;gap:2px" role="img" aria-label="Modellens fördelning mellan 15 aktier och kassa">
+<sc-for list="{{segs}}" as="s" hint-placeholder-count="16"><span style="width:{{s.w}};background:{{s.c}}"></span></sc-for></div>
+<div style="width:100%;margin-top:6px">
+<sc-for list="{{top}}" as="h" hint-placeholder-count="6">
+<a href="bolagssida.html" style="display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid {{h.line}};text-decoration:none;color:#2e1f1a"><span style="width:10px;height:10px;border-radius:10px;background:{{h.c}}"></span><span style="flex:1">{{h.n}}</span><span class="num t-mut" style="font-size:13px">rang {{h.r}}</span><strong class="num" style="width:56px;text-align:right">{{h.p}}</strong></a>
+</sc-for>
+<div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid #f0e6df"><span style="width:10px;height:10px;border-radius:10px;background:#9a8f89"></span><span style="flex:1">Övriga 9 bolag</span><strong class="num" style="width:56px;text-align:right">{{restTxt}}</strong></div>
+<div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid #f0e6df;color:#6f6560"><span style="width:10px;height:10px;border-radius:10px;background:#e9dcd3"></span><span style="flex:1">Kassa</span><strong class="num" style="width:56px;text-align:right;color:#2e1f1a">9,9 %</strong></div>
+<a href="#" style="display:block;text-align:center;font-weight:600;font-size:14px;padding:12px 0;border-top:1px solid #f0e6df;text-decoration:none">Visa alla 15 bolag i modellen</a>
+</div>
+</div>
+</section>
+<section style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="t-h" style="font-size:18px">Topplistan</h2><a href="bolag.html" style="font-size:13px;font-weight:600;text-decoration:none;padding:6px 0">Alla 120</a></div>
+<div class="t-card" style="padding:4px 16px">
+<sc-for list="{{rank}}" as="r" hint-placeholder-count="5">
+<a href="bolagssida.html" style="display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid {{r.line}};color:#2e1f1a;text-decoration:none"><span class="t-h num" style="width:28px;color:#2e1f1a">{{r.i}}</span><span style="flex:1">{{r.n}}</span><span class="num" style="font-size:13px;font-weight:600;color:{{r.c}};white-space:nowrap">{{r.m}}</span><span role="img" aria-label="{{r.al}}" style="width:24px;height:24px;border-radius:24px;flex:none;background:{{r.tbg}};color:{{r.tfg}};font:700 11px Inter,sans-serif;display:flex;align-items:center;justify-content:center">{{r.h}}</span></a>
+</sc-for>
+</div>
+</section>
+<section style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="t-h" style="font-size:18px">Senaste affärer</h2><a href="#" style="font-size:13px;font-weight:600;text-decoration:none;padding:6px 0">Alla 400</a></div>
+<div class="t-card" style="padding:4px 16px">
+<sc-for list="{{trades}}" as="a" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid {{a.line}}"><span style="font-size:11px;font-weight:800;padding:4px 8px;border-radius:8px;background:{{a.bg}};color:{{a.fg}}">{{a.s}}</span><span style="flex:1">{{a.n}}<br><small class="t-mut">{{a.why}}</small></span><span class="num t-mut" style="font-size:13px">{{a.d}}</span></div></sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isHist}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:12px">
+<h2 class="t-h" style="font-size:18px">Avkastning per år</h2>
+<sc-for list="{{years}}" as="y" hint-placeholder-count="7">
+<div style="display:flex;align-items:center;gap:10px"><span class="num t-mut" style="width:38px">{{y.y}}</span>
+<div style="flex:1;height:18px;position:relative"><span style="position:absolute;left:8%;top:-3px;bottom:-3px;width:1px;background:#e9dcd3"></span><span style="position:absolute;top:0;height:18px;border-radius:5px;left:{{y.l}};width:{{y.w}};background:{{y.c}}"></span></div>
+<span class="num" style="width:60px;text-align:right;font-weight:600;white-space:nowrap;color:{{y.tc}}">{{y.v}}</span></div>
+</sc-for>
+<span class="t-mut" style="font-size:12px">2026 till och med 29 oktober.</span>
+</section>
+<section class="t-card" style="display:flex;flex-direction:column;gap:12px">
+<h2 class="t-h" style="font-size:18px">Modellens innehav en viss dag</h2>
+<label style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:13px">Datum</span><input type="date" value="2024-06-14" class="t-in"></label>
+<span class="t-mut" style="font-size:13px">Välj ett datum för att se innehaven och affärerna den dagen.</span>
+</section>
+<a href="#" class="t-card" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:#2e1f1a"><span>Alla affärer</span><span class="num t-mut">senaste 400 ›</span></a>
+</sc-if>
+
+<sc-if value="{{isSim}}" hint-placeholder-val="{{ false }}">
+<section class="t-card" style="display:flex;flex-direction:column;gap:14px">
+<h2 class="t-h" style="font-size:18px">Om du följt modellen</h2>
+<label style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:13px">Startbelopp</span><input class="t-in num" value="100 000 kr"></label>
+<label style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:13px">Insättning per månad</span><input class="t-in num" value="7 000 kr"></label>
+<div style="background:#b0573d;color:#fff;border-radius:18px;padding:16px"><div style="font-size:13px;font-weight:600">Värde 29 okt 2026</div><div class="t-h num" style="font-size:36px">504 343 kr</div><div class="num" style="font-size:13px">Insatt 352 000 · årsavkastning 23,6 %</div></div>
+<div style="display:flex;gap:4px;background:#f3e8e1;border-radius:999px;padding:3px"><button type="button" class="t-tab" style="background:#fff;color:#2e1f1a">Kronor</button><button type="button" class="t-tab" style="background:transparent;color:#6f6560">Procent</button></div>
+</section>
+</sc-if>
+</div>
+<nav class="t-nav" aria-label="Huvudmeny">
+<a href="hem.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16v13H4z"></path><path d="M9 7V4h6v3M4 12h16"></path></svg>Hem</a>
+<a href="modell.html" class="on"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17l5-6 4 4 5-7 4 5M3 21h18"></path></svg>Modell</a>
+<a href="bolag.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M3 12h18"></path></svg>Bolag</a>
+<a href="marknad.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6.5 4"></path></svg>Marknad</a>
+<a href="radgivare.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 3h6v4H9z"></path><path d="M7 5H5v16h14V5h-2M8 12h8M8 16h5"></path></svg>Rådgivare</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2000}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={t:0}; }
+renderVals() {
+const t=this.state.t;
+const tabs=['Översikt','Historik','Simulera'].map((l,i)=>({l,on:String(i===t),bg:i===t?'#fff':'transparent',fg:i===t?'#2e1f1a':'#6f6560',sh:i===t?'0 2px 8px rgba(46,31,26,.08)':'none',go:()=>this.setState({t:i})}));
+const kpis=[['Per år','31,2 %','#2e1f1a'],['Största ras','−21,6 %','#8a3128'],['Volatilitet','18,2 %','#2e1f1a'],['Affärer per år','157','#2e1f1a']].map(x=>({l:x[0],v:x[1],c:x[2]}));
+const H=[['Nordea Bank',11.8,29],['Swedbank',11.0,16],['Industrivärden C',8.7,37],['Attendo',7.7,7],['Bravida',6.4,20],['MSAB',6.3,18],['ABB',5.5,21],['Sobi',5.2,24],['Inission',5.0,9],['Clas Ohlson',4.7,41],['SSAB',4.5,10],['Cloetta',4.2,8],['Scandi Standard',3.4,11],['FM Mattsson',3.0,6],['Hoist Finance',2.8,2]];
+const ring=['#8c6f5a','#5f7f99','#c9a253','#7d6a9a','#4f8a9a','#a87a95'];
+const rest=Math.round(H.slice(6).reduce((a,h)=>a+h[1],0)*10)/10;
+const segs=H.slice(0,6).map((h,i)=>({c:ring[i],w:h[1]+'%'})); segs.push({c:'#9a8f89',w:rest+'%'}); segs.push({c:'#e9dcd3',w:'9.9%'});
+const top=H.slice(0,6).map((h,i)=>({n:h[0],p:String(h[1]).replace('.',',')+' %',r:h[2],c:ring[i],line:i?'#f0e6df':'transparent'}));
+const restTxt=String(rest).replace('.',',')+'\u202f%';
+const tag=(x)=>x?{h:'M',tbg:'#e9dcd3',tfg:'#b0573d',al:'I modellen'}:{h:'R',tbg:'#f3e8e1',tfg:'#6f6560',al:'Rankad, inte i modellen'};
+const rank=[['1','FM Mattsson',52.3,1],['2','Hoist Finance',-9.7,1],['3','Ferronordic',39.4,0],['4','Scandi Standard',26.2,1],['5','Inission',12.5,1]].map((x,i)=>({i:x[0],n:x[1],m:(x[2]>=0?'+':'−')+Math.abs(x[2]).toFixed(0)+' %',c:x[2]>=0?'#4a705f':'#8a3128',line:i?'#f0e6df':'transparent',...tag(x[3])}));
+const trades=[['SÄLJ','Alleima','Stopp, 20 % under toppen','28 okt',0],['KÖP','Hoist Finance','Månadsgenomgång','2 okt',1],['KÖP','Nordea Bank','Månadsgenomgång','2 okt',1]].map((x,i)=>({s:x[0],n:x[1],why:x[2],d:x[3],bg:x[4]?'#4a705f':'#8a3128',fg:'#fff',line:i?'#f0e6df':'transparent'}));
+const Y=[['2020',97.4],['2021',73.5],['2022',-3.4],['2023',14.3],['2024',32.0],['2025',16.2],['2026',10.1]];
+const years=Y.map(y=>{ const up=y[1]>=0; const w=up?y[1]/97.4*92:Math.abs(y[1])/97.4*92;
+return {y:y[0],v:(up?'+':'−')+String(Math.abs(y[1])).replace('.',',')+' %',l:up?'8%':(8-w)+'%',w:Math.max(1,w)+'%',c:up?'#4a705f':'#8a3128',tc:up?'#4a705f':'#8a3128'}; });
+return { tabs, kpis, segs, restTxt, top, rank, trades, years, isOver:t===0, isHist:t===1, isSim:t===2 };
+}
+}
+</script>
+</body>
+</html>

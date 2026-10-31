@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Inställningar – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a}a:hover{color:#6f6560}
+.t-card{background:#fff;border:1px solid #e9dcd3;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(46,31,26,.05)}
+.t-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.t-mut{color:#6f6560}
+.t-lab{font-size:12px;font-weight:700;color:#6f6560;letter-spacing:.06em;margin:6px 4px 0}
+.t-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-top:1px solid #f0e6df;color:#2e1f1a;text-decoration:none}
+.t-row:first-child{border-top:0}
+.t-in{background:#fbf6f1;border:1px solid #e9dcd3;border-radius:12px;color:#2e1f1a;font:600 15px Inter,sans-serif;padding:10px 12px;width:100%;box-sizing:border-box}
+.t-tog{width:52px;height:32px;border-radius:32px;border:0;padding:3px;cursor:pointer;display:flex}
+.t-tog span{width:26px;height:26px;border-radius:26px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+</style>
+</helmet>
+<div style="width:390px;height:1160px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 16px 40px;display:flex;flex-direction:column;gap:12px">
+<header style="display:flex;align-items:center;gap:10px">
+<a href="hem.html" aria-label="Tillbaka till Hem" style="width:44px;height:44px;border-radius:14px;background:#fff;border:1px solid #e9dcd3;display:flex;align-items:center;justify-content:center;color:#2e1f1a"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<h1 class="t-h" style="font-size:24px">Inställningar</h1>
+</header>
+<section style="background:#e6efe9;border:1px solid #e6efe9;border-radius:22px;padding:16px;display:flex;align-items:center;gap:12px">
+<span style="width:44px;height:44px;border-radius:14px;background:#4a705f;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+<span style="flex:1;display:flex;flex-direction:column"><strong>Montrose kopplat</strong><small style="color:#4a705f">16 innehav · uppdaterat 29 okt 22:10</small></span>
+<button type="button" style="min-height:40px;padding:0 12px;border-radius:12px;border:0;background:#fff;color:#4a705f;font:700 13px Inter">Uppdatera</button>
+</section>
+<span class="t-lab">FÖLJ MODELLEN</span>
+<div class="t-card" style="padding:16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+<label style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:12px">Startbelopp</span><input class="t-in" value="100 000 kr"></label>
+<label style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:12px">Startdatum</span><input class="t-in" value="2023-10-31"></label>
+<label style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:12px">Per månad</span><input class="t-in" value="7 000 kr"></label>
+<label style="display:flex;flex-direction:column;gap:6px"><span class="t-mut" style="font-size:12px">Dag</span><input class="t-in" value="25"></label>
+<button type="button" style="grid-column:span 2;min-height:48px;border:0;border-radius:14px;background:#b0573d;color:#fff;font:700 15px Inter">Spara som standard</button>
+</div>
+<span class="t-lab">NOTISER</span>
+<div class="t-card">
+<sc-for list="{{tog}}" as="t" hint-placeholder-count="5">
+<div class="t-row"><span style="flex:1;display:flex;flex-direction:column"><span>{{t.l}}</span><small class="t-mut">{{t.s}}</small></span><button type="button" class="t-tog" aria-label="{{t.l}}" aria-pressed="{{t.on}}" onClick="{{t.flip}}" style="background:{{t.bg}};justify-content:{{t.jc}}"><span></span></button></div>
+</sc-for>
+</div>
+<span class="t-lab">UTSEENDE</span>
+<div class="t-card"><div class="t-row" style="gap:6px"><span style="flex:1">Tema</span><span style="display:flex;gap:2px;background:#f3e8e1;border-radius:999px;padding:3px"><button type="button" aria-pressed="true" style="font:600 13px Inter;padding:8px 12px;min-height:44px;border-radius:999px;border:0;background:#fff;color:#2e1f1a;box-shadow:0 2px 8px rgba(46,31,26,.08)">Ljust</button><button type="button" aria-pressed="false" style="font:600 13px Inter;padding:8px 12px;min-height:44px;border-radius:999px;border:0;background:transparent;color:#6f6560">Mörkt</button><button type="button" aria-pressed="false" style="font:600 13px Inter;padding:8px 12px;min-height:44px;border-radius:999px;border:0;background:transparent;color:#6f6560">Auto</button></span></div></div>
+<div class="t-card"><a class="t-row" href="#"><span style="flex:1">Om modellen och rådgivaren</span><span class="t-mut">›</span></a><a class="t-row" href="#"><span style="flex:1">Datakällor</span><span class="t-mut">›</span></a></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1160}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={on:{0:true,1:true,2:true,3:false,4:true}}; }
+renderVals() {
+const L=[['Modellens affärer','Nya köp och sälj efter månadsgenomgången'],['Stopplarm','Innehav −20 % från toppen'],['Veckobrev','Fredagskväll'],['Alla bolagsnyheter','Annars bara viktiga'],['Rapportdagar','Dagen innan']];
+const on=this.state.on;
+const tog=L.map((x,i)=>({l:x[0],s:x[1],on:String(!!on[i]),bg:on[i]?'#b0573d':'#e9dcd3',jc:on[i]?'flex-end':'flex-start',flip:()=>this.setState({on:{...on,[i]:!on[i]}})}));
+return { tog };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Bolag – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a}a:hover{color:#6f6560}
+.t-mut{color:#6f6560}
+.num{font-variant-numeric:tabular-nums}
+.t-chip{flex:1 1 auto;font:600 13px Inter,sans-serif;padding:8px 6px;border-radius:999px;border:0;cursor:pointer;white-space:nowrap;min-height:44px}
+.t-nav{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(251,246,241,.96);border-top:1px solid #e9dcd3;display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px}
+.t-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:#6f6560;text-decoration:none;width:64px;min-height:44px}
+.t-nav a.on{color:#b0573d}
+</style>
+</helmet>
+<div style="width:390px;height:1700px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:12px 16px 104px;display:flex;flex-direction:column;gap:14px">
+<h1 style="margin:0;font-family:'Space Grotesk',Inter,sans-serif;font-size:30px;font-weight:600">Bolag</h1>
+<label style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e9dcd3;border-radius:18px;padding:0 16px;height:54px;box-shadow:0 8px 30px rgba(46,31,26,.05)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6f6560" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><input type="search" placeholder="Sök namn, kortnamn, ISIN" style="border:0;outline:none;background:transparent;font:inherit;color:#2e1f1a;flex:1"></label>
+<div style="display:flex;gap:2px;background:#f3e8e1;border-radius:999px;padding:3px;width:100%;box-sizing:border-box">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="5"><button type="button" class="t-chip" onClick="{{c.go}}" aria-pressed="{{c.on}}" style="background:{{c.bg}};color:{{c.fg}};box-shadow:{{c.bd}}">{{c.l}}</button></sc-for>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="t-mut" style="font-size:13px">Tryck på en stapel för %</span><a href="#" style="font-size:13px;font-weight:600;text-decoration:none;padding:10px 0">Rang ▾</a></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<div style="background:#fff;border:1px solid #e9dcd3;border-radius:20px;padding:12px;display:flex;flex-direction:column;gap:8px;aspect-ratio:1/1;box-sizing:border-box;justify-content:space-between;box-shadow:0 8px 30px rgba(46,31,26,.05)">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span class="num" style="font-family:'Space Grotesk',Inter,sans-serif;font-size:20px;font-weight:600;line-height:1">#{{r.rank}}</span>
+<sc-if value="{{r.mod}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="I modellen" style="width:24px;height:24px;border-radius:24px;background:#e9dcd3;color:#b0573d;font:700 11px Inter,sans-serif;display:flex;align-items:center;justify-content:center">M</span></sc-if>
+<sc-if value="{{r.notmod}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Rankad, inte i modellen" style="width:24px;height:24px;border-radius:24px;background:#f3e8e1;color:#6f6560;font:700 11px Inter,sans-serif;display:flex;align-items:center;justify-content:center">R</span></sc-if>
+</div>
+<a href="bolagssida.html" style="min-width:0;text-decoration:none;color:#2e1f1a"><strong style="display:block;font-size:13px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.n}}</strong></a>
+<div style="display:flex;flex-direction:column;gap:4px">
+<div style="display:flex;gap:6px">
+<sc-for list="{{r.bars}}" as="b" hint-placeholder-count="3">
+<button type="button" onClick="{{b.pick}}" aria-label="{{b.aria}}" aria-pressed="{{b.on}}" style="flex:1;border:0;background:transparent;padding:0;cursor:pointer;display:flex;flex-direction:column;opacity:{{b.op}}">
+<span style="width:100%;height:22px;display:flex;align-items:flex-end"><span style="width:100%;height:{{b.up}};background:#4a705f;border-radius:4px 4px 0 0"></span></span>
+<span style="width:100%;height:1px;background:#e9dcd3"></span>
+<span style="width:100%;height:22px;display:flex;align-items:flex-start"><span style="width:100%;height:{{b.dn}};background:#8a3128;border-radius:0 0 4px 4px"></span></span>
+</button>
+</sc-for>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:6px;white-space:nowrap"><span class="num" style="font-weight:700;font-size:14px">{{r.p}}</span><span class="num" style="font-size:12px;font-weight:600;color:{{r.ic}}"><span style="color:#6f6560;font-weight:500">{{r.il}}</span> {{r.iv}}</span></div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+<nav class="t-nav" aria-label="Huvudmeny">
+<a href="hem.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16v13H4z"></path><path d="M9 7V4h6v3M4 12h16"></path></svg>Hem</a>
+<a href="modell.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17l5-6 4 4 5-7 4 5M3 21h18"></path></svg>Modell</a>
+<a href="bolag.html" class="on"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M3 12h18"></path></svg>Bolag</a>
+<a href="marknad.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6.5 4"></path></svg>Marknad</a>
+<a href="radgivare.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 3h6v4H9z"></path><path d="M7 5H5v16h14V5h-2M8 12h8M8 16h5"></path></svg>Rådgivare</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1700}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={f:0}; }
+renderVals() {
+const D=[[1,'Sivers Semiconductors',21.6,-31.2,-41.7,464.1,0],[2,'Hoist Finance',192.3,-4.7,-12.3,100.8,1],[3,'Lundin Mining',221.55,-5.4,-10.4,49.0,0],[4,'INQ Group',0.14,-23.2,5.4,159.2,0],[5,'Acast',29.98,-9.3,-18.3,38.2,0],[6,'FM Mattsson',128.58,7.6,46.8,133.0,1],[7,'Attendo',117.38,-7.7,8.0,48.7,1],[8,'Cloetta',58.91,16.9,3.9,65.8,1],[9,'Inission',72.52,3.6,8.9,76.3,1],[10,'SSAB',95.07,-3.2,-9.5,60.8,1]];
+const f=this.state.f;
+const L=D.filter(x=>f===0||f===4||(f===1||f===2)&&x[6]===1||f===3&&x[6]===1);
+const hh=(v,max)=>Math.max(3,Math.min(40,Math.abs(v)/max*40))+'px';
+const cc=v=>v>=0?'#b0573d':'#9a8f89';
+const sel=this.state.sel||{};
+const rows=L.map(x=>({rank:x[0],n:x[1],p:x[2].toFixed(2).replace('.',',')+'\u202fkr',mod:!!x[6],notmod:!x[6]}));
+const chips=['Topp','Dina','Modell','Förvaltare','Alla'].map((l,i)=>({l,on:String(i===f),bg:i===f?'#fff':'transparent',fg:i===f?'#2e1f1a':'#6f6560',bd:i===f?'0 2px 8px rgba(46,31,26,.08)':'none',go:()=>this.setState({f:i,sel:null})}));
+const P=['1 mån','3 mån','12 mån'];
+rows.forEach((r,i)=>{ const x=L[i]; const vals=[x[3],x[4],x[5]];
+ const pickedHere=sel.k===x[0];
+ r.bars=vals.map((v,k)=>{ const h=Math.max(2,Math.min(22,Math.abs(v)/60*22))+'px'; const up=v>=0; const txt=(up?'+':'−')+Math.abs(v).toFixed(Math.abs(v)>=100?0:1).replace('.',',')+'\u202f%';
+  const on=pickedHere&&sel.b===k;
+  return {up:up?h:'0px',dn:up?'0px':h,on:String(on),op:pickedHere&&!on?.35:1,aria:P[k]+' '+txt,pick:()=>this.setState({sel:on?null:{k:x[0],b:k}})}; });
+ const k=pickedHere?sel.b:0; const v=vals[k]; r.il=['1 m','3 m','12 m'][k]; r.iv=(v>=0?'+':'−')+Math.abs(v).toFixed(Math.abs(v)>=100?0:1).replace('.',',')+'\u202f%'; r.ic=v>=0?'#4a705f':'#8a3128';
+});
+return { rows, chips };
+}
+}
+</script>
+</body>
+</html>
