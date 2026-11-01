@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Bolag enligt modellen – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a;text-decoration:none}
+.k-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.num{font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div style="width:390px;height:1240px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 16px 40px;display:flex;flex-direction:column;gap:16px">
+<header style="display:grid;grid-template-columns:44px 1fr 44px;align-items:center">
+<a href="modell.html" aria-label="Tillbaka till Modellen" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></a>
+<h1 class="k-h" style="font-size:18px;text-align:center">Bolag enligt modellen</h1><span></span>
+</header>
+<p style="margin:0;font-size:14px;color:#6f6560;line-height:1.45">Modellens målvikter efter månadsgenomgången 29 okt. Det här är inte dina innehav.</p>
+<div style="display:flex;height:14px;border-radius:14px;overflow:hidden;gap:2px" role="img" aria-label="Fördelning mellan 15 aktier och kassa"><sc-for list="{{segs}}" as="s" hint-placeholder-count="16"><span style="width:{{s.w}};background:{{s.c}}"></span></sc-for></div>
+<div class="num" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div style="background:#fff;border:1px solid #e9dcd3;border-radius:18px;padding:12px"><div style="font-size:12px;color:#6f6560">Aktier</div><strong class="k-h" style="font-size:20px">90,1&#8239;%</strong></div>
+<div style="background:#fff;border:1px solid #e9dcd3;border-radius:18px;padding:12px"><div style="font-size:12px;color:#6f6560">Kassa</div><strong class="k-h" style="font-size:20px">9,9&#8239;%</strong></div>
+<div style="background:#fff;border:1px solid #e9dcd3;border-radius:18px;padding:12px"><div style="font-size:12px;color:#6f6560">Bolag</div><strong class="k-h" style="font-size:20px">15</strong></div>
+</div>
+<div style="background:#fff;border:1px solid #e9dcd3;border-radius:22px;padding:4px 16px">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="15">
+<a href="../bolagssida.html" style="display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid {{r.line}}">
+<span style="width:10px;height:10px;border-radius:10px;background:{{r.c}};flex:none"></span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.n}}</strong><small class="num" style="color:#6f6560">Rang {{r.r}} av 120</small></span>
+<strong class="num" style="white-space:nowrap">{{r.p}}</strong>
+</a>
+</sc-for>
+<div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #f0e6df;color:#6f6560"><span style="width:10px;height:10px;border-radius:10px;background:#e9dcd3"></span><span style="flex:1">Kassa</span><strong class="num" style="color:#2e1f1a">9,9&#8239;%</strong></div>
+</div>
+<a href="innehav.html" style="display:flex;align-items:center;min-height:52px;padding:0 16px;background:#fff;border:1px solid #e9dcd3;border-radius:22px;font-weight:600"><span style="flex:1">Jämför med dina innehav</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1240}}'>
+class Component extends DCLogic {
+renderVals() {
+const H=[['Nordea Bank',11.8,29],['Swedbank',11.0,16],['Industrivärden C',8.7,37],['Attendo',7.7,7],['Bravida',6.4,20],['MSAB',6.3,18],['ABB',5.5,21],['Sobi',5.2,24],['Inission',5.0,9],['Clas Ohlson',4.7,41],['SSAB',4.5,10],['Cloetta',4.2,8],['Scandi Standard',3.4,11],['FM Mattsson',3.0,6],['Hoist Finance',2.8,2]];
+const C=['#8c6f5a','#5f7f99','#c9a253','#7d6a9a','#4f8a9a','#a87a95'];
+const col=i=>i<6?C[i]:'#9a8f89';
+const segs=H.map((h,i)=>({w:h[1]+'%',c:col(i)})).concat([{w:'9.9%',c:'#e9dcd3'}]);
+const rows=H.map((h,i)=>({n:h[0],p:String(h[1]).replace('.',',')+' %',r:h[2],c:col(i),line:i?'#f0e6df':'transparent'}));
+return { segs, rows };
+}
+}
+</script>
+</body>
+</html>

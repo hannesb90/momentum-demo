@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Hem – kortlayout</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a;text-decoration:none}
+.k-card{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid #e9dcd3;border-radius:22px;padding:16px;color:#2e1f1a;text-decoration:none;box-sizing:border-box}
+.k-head{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#6f6560}
+.k-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.k-big{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;font-size:30px;line-height:1.1}
+.k-row{display:flex;align-items:center;gap:10px;font-size:14px}
+.k-sec{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px}
+.k-sec a{font-size:14px;font-weight:600;color:#b0573d;padding:10px 0}
+.num{font-variant-numeric:tabular-nums}
+.k-ico{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#2e1f1a}
+.t-nav{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(251,246,241,.96);border-top:1px solid #e9dcd3;display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px}
+.t-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:#6f6560;width:64px;min-height:44px}
+.t-nav a.on{color:#b0573d}
+</style>
+</helmet>
+<div style="width:390px;height:1380px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 0 104px;display:flex;flex-direction:column;gap:14px">
+
+<header style="display:flex;align-items:center;padding:0 16px">
+<h1 class="k-h" style="font-size:28px;flex:1">Hem</h1>
+<a href="../bolag.html" class="k-ico" aria-label="Sök bolag"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></a>
+<a href="../notiser.html" class="k-ico" aria-label="Notiser, 3 nya" style="position:relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><span style="position:absolute;top:8px;right:9px;width:8px;height:8px;border-radius:8px;background:#b0573d"></span></a>
+<a href="../installningar.html" class="k-ico" aria-label="Inställningar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg></a>
+</header>
+
+<div style="display:flex;gap:10px;overflow-x:auto;padding:0 16px;scroll-snap-type:x mandatory">
+<a href="vardeutveckling.html" class="k-card" style="min-width:300px;scroll-snap-align:start">
+<div class="k-head"><span>Utveckling 1 vecka</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<span class="k-big num" style="color:#4a705f">+3&#8239;599&#8239;kr</span>
+<div class="k-row"><span style="flex:1">Swedish Orphan Biovitrum</span><strong class="num" style="color:#4a705f">+1&#8239;796&#8239;kr</strong></div>
+<div class="k-row"><span style="flex:1">Global indexfond</span><strong class="num" style="color:#4a705f">+1&#8239;556&#8239;kr</strong></div>
+</a>
+<a href="min-utveckling.html" class="k-card" style="min-width:300px;scroll-snap-align:start">
+<div class="k-head"><span>Totalt värde</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<span class="k-big num">504&#8239;343&#8239;kr</span>
+<svg width="100%" height="56" viewBox="0 0 342 124" preserveAspectRatio="none" role="img" aria-label="Värdet har stigit sedan start"><path d="M0 120.0 L26.8 110.0 L53.6 98.7 L80.5 86.0 L107.3 80.5 L134.1 75.5 L147.5 66.3 L160.9 75.4 L187.8 55.7 L214.6 45.2 L241.4 35.7 L268.2 27.5 L295.1 12.8 L321.9 3.2 L342.0 1.2" fill="none" stroke="#b0573d" stroke-width="3"></path></svg>
+</a>
+<a href="min-utveckling.html" class="k-card" style="min-width:300px;scroll-snap-align:start">
+<div class="k-head"><span>Mot modellen sedan start</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<span class="k-big num" style="color:#4a705f">+1,2 p.e.</span>
+<div class="k-row"><span style="flex:1">Modellen</span><span class="num">+87,5&#8239;%</span></div>
+<div class="k-row"><span style="flex:1">All World</span><span class="num">+65,7&#8239;%</span></div>
+</a>
+</div>
+<div style="display:flex;justify-content:center;gap:6px" aria-hidden="true"><span style="width:18px;height:6px;border-radius:6px;background:#2e1f1a"></span><span style="width:6px;height:6px;border-radius:6px;background:#d9cbc3"></span><span style="width:6px;height:6px;border-radius:6px;background:#d9cbc3"></span></div>
+
+<div style="display:flex;flex-direction:column;gap:12px;padding:0 16px">
+
+<a href="../installningar.html" class="k-card">
+<div class="k-head"><span>Sparmål</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span class="k-h" style="font-size:22px">En miljon</span><strong class="num" style="font-size:15px">50&#8239;%</strong></div>
+<div style="height:10px;border-radius:10px;background:#f3e8e1;overflow:hidden" role="img" aria-label="50 procent av målet"><div style="width:50.4%;height:10px;border-radius:10px;background:#b0573d"></div></div>
+<div class="num" style="display:flex;justify-content:space-between;font-size:13px;color:#6f6560"><span>504&#8239;343 av 1&#8239;000&#8239;000&#8239;kr</span><span>ca maj 2030</span></div>
+<span style="font-size:12px;color:#6f6560">Med 7&#8239;000&#8239;kr/mån och antagen avkastning 8&#8239;% per år.</span>
+</a>
+
+<a href="../handel.html" class="k-card" style="flex-direction:row;align-items:center;gap:14px;background:#b0573d;border-color:#b0573d;color:#fff">
+<span class="k-h" style="width:44px;height:44px;border-radius:14px;background:#fbf6f1;color:#b0573d;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none">3</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:2px"><strong style="font-size:16px">Följ modellen</strong><span style="font-size:13px">2 sälj, 1 köp väntar på dig</span></span>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+
+<a href="innehav.html" class="k-card">
+<div class="k-head"><span>Dina innehav · 16</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<div style="display:flex;height:10px;border-radius:10px;overflow:hidden;gap:2px" aria-hidden="true"><span style="width:35.5%;background:#3a5e4e"></span><span style="width:9.7%;background:#4a705f"></span><span style="width:6.6%;background:#8a3128"></span><span style="width:5%;background:#3a5e4e"></span><span style="width:4.8%;background:#547866"></span><span style="width:4.6%;background:#3a5e4e"></span><span style="width:4.4%;background:#8a3128"></span><span style="width:29.4%;background:#d9cbc3"></span></div>
+<sc-for list="{{movers}}" as="m" hint-placeholder-count="3">
+<div class="k-row"><span style="flex:1">{{m.n}}</span><strong class="num" style="color:{{m.c}};white-space:nowrap">{{m.v}}</strong></div>
+</sc-for>
+</a>
+
+<a href="../radgivare.html" class="k-card">
+<div class="k-head"><span>Rådgivaren · veckobrev 30 okt</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<div class="k-row"><span style="font-size:11px;font-weight:800;padding:4px 0;border-radius:8px;background:#8a3128;color:#fff;width:60px;text-align:center">SÄLJ</span><span style="flex:1;font-weight:600">Nordea, ABB</span></div>
+<div class="k-row"><span style="font-size:11px;font-weight:800;padding:4px 0;border-radius:8px;background:#8a6420;color:#fff;width:60px;text-align:center">MINSKA</span><span style="flex:1;font-weight:600">MSAB</span></div>
+</a>
+
+<div class="k-sec"><h2 class="k-h" style="font-size:20px">Börsen i dag</h2><a href="../marknad.html">Visa alla</a></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<a href="../marknad.html" class="k-card" style="gap:6px"><div style="display:flex;justify-content:space-between;align-items:center"><strong>OMXS30</strong><span class="num" style="font-size:13px;font-weight:700;padding:3px 7px;border-radius:8px;background:#f6e0dc;color:#8a3128">−0,3&#8239;%</span></div><span class="t-mut" style="font-size:13px;color:#6f6560">Stängd · VIX 19,4</span></a>
+<a href="../marknad.html" class="k-card" style="gap:6px"><div style="display:flex;justify-content:space-between;align-items:center"><strong>S&amp;P 500</strong><span class="num" style="font-size:13px;font-weight:700;padding:3px 7px;border-radius:8px;background:#f6e0dc;color:#8a3128">−1,8&#8239;%</span></div><span style="font-size:13px;color:#6f6560">Stängd</span></a>
+</div>
+
+<div class="k-sec"><h2 class="k-h" style="font-size:20px">Nyheter om dina innehav</h2></div>
+<a href="../bolagssida.html" class="k-card" style="gap:6px">
+<div style="display:flex;justify-content:space-between;font-size:13px;color:#6f6560"><span><strong style="color:#4a705f">Sobi</strong> · 29 okt</span><span>1 av 2</span></div>
+<strong style="font-size:16px;line-height:1.3">Höjer prognosen för helåret efter starkt kvartal</strong>
+</a>
+</div>
+</div>
+<nav class="t-nav" aria-label="Huvudmeny">
+<a href="hem.html" class="on"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16v13H4z"></path><path d="M9 7V4h6v3M4 12h16"></path></svg>Hem</a>
+<a href="modell.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17l5-6 4 4 5-7 4 5M3 21h18"></path></svg>Modell</a>
+<a href="../bolag.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M3 12h18"></path></svg>Bolag</a>
+<a href="../marknad.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6.5 4"></path></svg>Marknad</a>
+<a href="../radgivare.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 3h6v4H9z"></path><path d="M7 5H5v16h14V5h-2M8 12h8M8 16h5"></path></svg>Rådgivare</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1380}}'>
+class Component extends DCLogic {
+renderVals() {
+const g='#4a705f', r='#8a3128';
+const movers=[['Hoist Finance','+85,1 %',g],['Attendo','+55,8 %',g],['Nordea Bank','−8,9 %',r]].map(x=>({n:x[0],v:x[1],c:x[2]}));
+return { movers };
+}
+}
+</script>
+</body>
+</html>

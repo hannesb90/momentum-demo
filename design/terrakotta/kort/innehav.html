@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Dina innehav – Terrakotta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a;text-decoration:none}
+.k-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.num{font-variant-numeric:tabular-nums}
+.k-seg{display:flex;gap:2px;background:#f3e8e1;border-radius:999px;padding:3px}
+.k-seg button{flex:1;font:600 13px Inter,sans-serif;padding:8px 12px;min-height:44px;border-radius:999px;border:0;cursor:pointer}
+.k-tile{border-radius:14px;padding:8px;font-size:12px;font-weight:500;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+</style>
+</helmet>
+<div style="width:390px;height:1500px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 16px 40px;display:flex;flex-direction:column;gap:16px">
+<header style="display:flex;align-items:center;gap:10px">
+<a href="hem.html" aria-label="Tillbaka till Hem" style="width:44px;height:44px;border-radius:14px;background:#fff;border:1px solid #e9dcd3;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<h1 class="k-h" style="font-size:24px;flex:1">Dina innehav</h1>
+<span class="num" style="font-size:13px;color:#6f6560">16 st</span>
+</header>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:60px;gap:6px">
+<a href="../bolagssida.html" class="k-tile" style="grid-column:span 2;grid-row:span 3;background:#547866;padding:12px"><span style="font-size:13px">Global indexfond</span><span class="num"><strong class="k-h" style="font-size:22px">35,5&#8239;%</strong><br><span style="font-size:13px">+2,9&#8239;%</span></span></a>
+<a href="../bolagssida.html" class="k-tile" style="grid-column:span 2;flex-direction:row;align-items:center;background:#4a705f;font-size:13px;padding:10px"><span>Swedbank</span><span class="num">+19&#8239;%</span></a>
+<sc-for list="{{tiles}}" as="t" hint-placeholder-count="12"><a href="../bolagssida.html" class="k-tile" style="background:{{t.bg}}"><span>{{t.n}}</span><span class="num">{{t.r}}</span></a></sc-for>
+</div>
+<div class="k-seg"><sc-for list="{{f}}" as="c" hint-placeholder-count="3"><button type="button" onClick="{{c.go}}" aria-pressed="{{c.on}}" style="background:{{c.bg}};color:{{c.fg}};box-shadow:{{c.sh}}">{{c.l}}</button></sc-for></div>
+<div style="background:#fff;border:1px solid #e9dcd3;border-radius:22px;padding:4px 16px">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<a href="../bolagssida.html" style="display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid {{r.line}}">
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{r.n}}</strong><small class="num" style="color:#6f6560">{{r.sub}}</small></span>
+<span style="display:flex;flex-direction:column;align-items:flex-end;gap:2px"><strong class="num" style="white-space:nowrap">{{r.v}}</strong><small class="num" style="color:{{r.c}};font-weight:600;white-space:nowrap">{{r.r}}</small></span>
+</a>
+</sc-for>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1500}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={f:0}; }
+renderVals() {
+const g='#4a705f', r='#8a3128';
+const up=['#547866'], up2=['#4a705f'], up3=['#3a5e4e'], dn=['#8a3128'];
+const tiles=[['Nordea','−8,9',dn],['Attendo','+56',up3],['Sobi','+5,1',up],['Cloetta','+55',up3],['ABB','−7,8',dn],['SSAB','+1,5',up],['Inission','+6,1',up],['Scandi','+25',up2],['Bravida','+2,3',up],['MSAB','+17',up2],['IPCO','+26',up2],['Hoist','+85',up3]].map(x=>({n:x[0],r:x[1],bg:x[2][0]}));
+const D=[['Global indexfond',35.5,'113 andelar','179 226',2.9,''],['Swedbank',9.7,'126 st','49 046',19.1,''],['Nordea Bank',6.6,'193 st','33 385',-8.9,'stopplarm'],['Attendo',5.0,'214 st','25 140',55.8,''],['Sobi',4.8,'51 st','24 342',5.1,''],['Cloetta',4.6,'417 st','23 322',55.1,''],['ABB',4.4,'25 st','22 163',-7.8,'stopplarm'],['SSAB',4.2,'215 st','21 035',1.5,''],['Inission',3.9,'266 st','19 453',6.1,''],['Scandi Standard',3.6,'101 st','17 994',24.8,''],['Bravida',3.5,'116 st','17 843',2.3,''],['MSAB',3.5,'163 st','17 615',16.5,''],['International Petroleum',2.9,'52 st','14 675',26.0,''],['Hoist Finance',2.7,'71 st','13 852',85.1,''],['Karnell Group',2.6,'144 st','13 037',15.8,''],['FM Mattsson',2.4,'95 st','12 215',23.4,'']];
+const f=this.state.f;
+const L=D.filter(x=>f===0||(f===1&&x[4]>=0)||(f===2&&x[4]<0));
+const pct=v=>String(v).replace('.',',')+' %';
+const rows=L.map((x,i)=>({n:x[0],sub:pct(x[1])+' · '+x[2]+(x[5]?' · '+x[5]:''),v:x[3]+' kr',r:(x[4]>=0?'+':'−')+pct(Math.abs(x[4])),c:x[4]>=0?g:r,line:i?'#f0e6df':'transparent'}));
+const fl=['Alla','Vinnare','Förlorare'].map((l,i)=>({l,on:String(i===f),bg:i===f?'#fff':'transparent',fg:i===f?'#2e1f1a':'#6f6560',sh:i===f?'0 2px 8px rgba(46,31,26,.08)':'none',go:()=>this.setState({f:i})}));
+return { tiles, rows, f:fl };
+}
+}
+</script>
+</body>
+</html>

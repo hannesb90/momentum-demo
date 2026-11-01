@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Modell – kortlayout</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2e1f1a;text-decoration:none}
+.k-card{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid #e9dcd3;border-radius:22px;padding:16px;color:#2e1f1a;text-decoration:none;box-sizing:border-box}
+.k-head{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#6f6560}
+.k-h{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;margin:0}
+.k-big{font-family:'Space Grotesk',Inter,sans-serif;font-weight:600;font-size:30px;line-height:1.1}
+.k-row{display:flex;align-items:center;gap:10px;font-size:14px}
+.num{font-variant-numeric:tabular-nums}
+.k-ic{width:24px;height:24px;border-radius:24px;flex:none;font:700 11px Inter,sans-serif;display:flex;align-items:center;justify-content:center}
+.t-nav{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(251,246,241,.96);border-top:1px solid #e9dcd3;display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px}
+.t-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:#6f6560;width:64px;min-height:44px}
+.t-nav a.on{color:#b0573d}
+</style>
+</helmet>
+<div style="width:390px;height:1360px;position:relative;overflow:hidden;background:#fbf6f1;color:#2e1f1a;font-family:Inter,system-ui,sans-serif;font-size:15px">
+<div style="padding:14px 0 104px;display:flex;flex-direction:column;gap:14px">
+
+<header style="display:flex;align-items:center;justify-content:space-between;padding:0 16px;min-height:44px">
+<h1 class="k-h" style="font-size:28px">Modellen</h1>
+<span style="font-size:12px;font-weight:700;color:#4a705f;background:#e6efe9;padding:6px 10px;border-radius:999px">● Verifierad 29 okt</span>
+</header>
+
+<div style="display:flex;gap:10px;overflow-x:auto;padding:0 16px;scroll-snap-type:x mandatory">
+<a href="../modell.html" class="k-card" style="min-width:300px;scroll-snap-align:start">
+<div class="k-head"><span>100 kr i jan 2020 är i dag</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<span class="k-big num">638&#8239;kr</span>
+<svg width="100%" height="56" viewBox="0 0 342 140" preserveAspectRatio="none" role="img" aria-label="Modellen mot index sedan 2020"><path d="M0 133.2 L82.1 124.7 L164.2 124.5 L246.2 119.7 L342.0 104.7" fill="none" stroke="#9a8f89" stroke-width="3"></path><path d="M0 133.2 L27.4 121.9 L54.7 108.2 L82.1 89.1 L109.4 84.6 L136.8 87.8 L164.2 70.1 L191.5 74.8 L218.9 40.2 L246.2 38.9 L259.9 48.5 L287.3 24.8 L314.6 3.5 L342.0 4.6" fill="none" stroke="#b0573d" stroke-width="3.5"></path></svg>
+<span class="num" style="font-size:13px;color:#6f6560">OMXS30 219 kr · All World 236 kr</span>
+</a>
+<a href="../modell.html" class="k-card" style="min-width:300px;scroll-snap-align:start">
+<div class="k-head"><span>Avkastning per år</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<span class="k-big num" style="color:#4a705f">31,2&#8239;%</span>
+<div style="display:flex;align-items:center;gap:6px;height:44px" aria-hidden="true">
+<sc-for list="{{yrs}}" as="y" hint-placeholder-count="7"><div style="flex:1;height:44px;display:flex;flex-direction:column"><div style="height:30px;display:flex;align-items:flex-end"><span style="width:100%;height:{{y.u}};background:#4a705f;border-radius:3px 3px 0 0"></span></div><span style="height:1px;background:#e9dcd3"></span><div style="height:13px"><span style="display:block;width:100%;height:{{y.d}};background:#8a3128;border-radius:0 0 3px 3px"></span></div></div></sc-for>
+</div>
+<span class="num" style="font-size:13px;color:#6f6560">2020–2026 · största ras −21,6&#8239;%</span>
+</a>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px;padding:0 16px">
+
+<a href="../handel.html" class="k-card" style="flex-direction:row;align-items:center;gap:14px">
+<span class="k-h" style="width:44px;height:44px;border-radius:14px;background:#f3e8e1;color:#2e1f1a;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none">3</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:2px"><strong style="font-size:16px">Månadsgenomgång 29 okt</strong><span style="font-size:13px;color:#6f6560">Sälj Nordea, ABB · köp Ferronordic</span></span>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</a>
+
+<a href="modell-bolag.html" class="k-card">
+<div class="k-head"><span>Bolag enligt modellen · 15 + kassa</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<div style="display:flex;height:12px;border-radius:12px;overflow:hidden;gap:2px" role="img" aria-label="Modellens fördelning"><sc-for list="{{segs}}" as="s" hint-placeholder-count="8"><span style="width:{{s.w}};background:{{s.c}}"></span></sc-for></div>
+<sc-for list="{{top3}}" as="h" hint-placeholder-count="3"><div class="k-row"><span style="width:10px;height:10px;border-radius:10px;background:{{h.c}}"></span><span style="flex:1">{{h.n}}</span><strong class="num">{{h.p}}</strong></div></sc-for>
+</a>
+
+<a href="../bolag.html" class="k-card">
+<div class="k-head"><span>Topplistan · 120 rankade</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<sc-for list="{{rank}}" as="r" hint-placeholder-count="3"><div class="k-row"><span class="k-h num" style="width:24px">{{r.i}}</span><span style="flex:1">{{r.n}}</span><span class="num" style="font-weight:600;color:{{r.c}};white-space:nowrap">{{r.m}}</span><span class="k-ic" role="img" aria-label="{{r.al}}" style="background:{{r.bg}};color:{{r.fg}}">{{r.t}}</span></div></sc-for>
+</a>
+
+<a href="../modell.html" class="k-card">
+<div class="k-head"><span>Senaste affärer · 400</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></div>
+<div class="k-row"><span style="font-size:11px;font-weight:800;padding:4px 0;width:44px;text-align:center;border-radius:8px;background:#8a3128;color:#fff">SÄLJ</span><span style="flex:1">Alleima</span><span class="num" style="color:#6f6560;font-size:13px">28 okt</span></div>
+<div class="k-row"><span style="font-size:11px;font-weight:800;padding:4px 0;width:44px;text-align:center;border-radius:8px;background:#4a705f;color:#fff">KÖP</span><span style="flex:1">Hoist Finance</span><span class="num" style="color:#6f6560;font-size:13px">2 okt</span></div>
+</a>
+
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<a href="../modell.html" class="k-card" style="gap:6px"><span style="font-size:14px;color:#6f6560">Simulera</span><strong class="k-h num" style="font-size:20px">504&#8239;343&#8239;kr</strong><span style="font-size:12px;color:#6f6560">100&#8239;000 + 7&#8239;000/mån</span></a>
+<a href="../modell.html" class="k-card" style="gap:6px"><span style="font-size:14px;color:#6f6560">Historik</span><strong class="k-h" style="font-size:20px">Välj dag</strong><span style="font-size:12px;color:#6f6560">Innehav och affärer</span></a>
+</div>
+
+<a href="../radgivare.html" class="k-card" style="flex-direction:row;align-items:center"><span style="flex:1;font-weight:600">Om modellen</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+<nav class="t-nav" aria-label="Huvudmeny">
+<a href="hem.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16v13H4z"></path><path d="M9 7V4h6v3M4 12h16"></path></svg>Hem</a>
+<a href="modell.html" class="on"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17l5-6 4 4 5-7 4 5M3 21h18"></path></svg>Modell</a>
+<a href="../bolag.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M3 12h18"></path></svg>Bolag</a>
+<a href="../marknad.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6.5 4"></path></svg>Marknad</a>
+<a href="../radgivare.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 3h6v4H9z"></path><path d="M7 5H5v16h14V5h-2M8 12h8M8 16h5"></path></svg>Rådgivare</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1360}}'>
+class Component extends DCLogic {
+renderVals() {
+const Y=[97.4,73.5,-3.4,14.3,32.0,16.2,10.1];
+const yrs=Y.map(v=>({u:v>0?Math.max(2,v/97.4*30)+'px':'0px',d:v<0?Math.max(2,-v/97.4*30)+'px':'0px'}));
+const H=[['Nordea Bank',11.8],['Swedbank',11.0],['Industrivärden C',8.7],['Attendo',7.7],['Bravida',6.4],['MSAB',6.3]];
+const C=['#8c6f5a','#5f7f99','#c9a253','#7d6a9a','#4f8a9a','#a87a95'];
+const segs=H.map((h,i)=>({w:h[1]+'%',c:C[i]})).concat([{w:'38.3%',c:'#9a8f89'},{w:'9.9%',c:'#e9dcd3'}]);
+const top3=H.slice(0,3).map((h,i)=>({n:h[0],p:String(h[1]).replace('.',',')+' %',c:C[i]}));
+const tag=x=>x?{t:'M',bg:'#e9dcd3',fg:'#b0573d',al:'I modellen'}:{t:'R',bg:'#f3e8e1',fg:'#6f6560',al:'Rankad, inte i modellen'};
+const rank=[['1','FM Mattsson',52,1],['2','Hoist Finance',-10,1],['3','Ferronordic',39,0]].map(x=>({i:x[0],n:x[1],m:(x[2]>=0?'+':'−')+Math.abs(x[2])+' %',c:x[2]>=0?'#4a705f':'#8a3128',...tag(x[3])}));
+return { yrs, segs, top3, rank };
+}
+}
+</script>
+</body>
+</html>

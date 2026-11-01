@@ -88,3 +88,26 @@ Historik är en flik inne i Modell (Översikt · Historik · Simulera). Veckobre
 - **Rådgivaren:** status, viktigast nu, flikar Brev · Beslut · Portfölj · Facit.
 - **Notiser:** tidslinje, olästa har åtgärdsknapp + "Markera läst".
 - **Inställningar:** Montrose-koppling, följ modellen-värden, notisval, tema (Ljust/Mörkt/Auto).
+
+## Kortlayout (A3) – Hem och Modell
+
+Mappen `terrakotta/kort/` innehåller nästa steg för Hem och Modell, inspirerat av hur Avanza bygger sidor: startsidan består av korta, klickbara kort och detaljerna ligger på egna sidor. Det sparar scroll. Övriga sidor länkar till `terrakotta/`.
+
+**Kortmönstret:** vitt kort (`surface`, radie 22 px, padding 16 px), rubrikrad i `muted` med pil till höger, en stor siffra och högst tre rader. Hela kortet är en länk. Överst på Hem och Modell finns en svepbar rad med kort (scroll-snap, 300 px breda).
+
+| Sida | Fil | Innehåll |
+|---|---|---|
+| Hem | `kort/hem.html` | Svepkort: Utveckling 1 vecka, Totalt värde, Mot modellen · Sparmål · Följ modellen · Dina innehav · Rådgivaren · Börsen i dag · Nyheter |
+| Värdeutveckling | `kort/vardeutveckling.html` | Period (1 v, 1 mån, 3 mån), total i kr, bäst/sämst, grupper Aktier · Fonder · Sålda under perioden, Mer |
+| Min utveckling | `kort/min-utveckling.html` | %/kr, Jämför (Modellen, OMXS30, All World), period 1 v–Alla, stor graf med y-skala och datum |
+| Dina innehav | `kort/innehav.html` | Rutkarta, filter Alla/Vinnare/Förlorare, lista med vikt, antal, värde, resultat, stopplarm |
+| Modell | `kort/modell.html` | Svepkort: 100 kr → 638 kr, Avkastning per år · Månadsgenomgång · Bolag enligt modellen · Topplistan · Senaste affärer · Simulera/Historik · Om modellen |
+| Bolag enligt modellen | `kort/modell-bolag.html` | Stapel, aktier/kassa/antal, alla 15 med vikt och rang, länk "Jämför med dina innehav" |
+
+**Beräkningar**
+
+- Värdeutveckling per innehav = värde vid periodens slut − värde vid start − nettoköp under perioden. Sålda bolag ingår under "Sålda under perioden". Summan ska stämma med kontots förändring exklusive insättningar (skillnad = courtage).
+- Min utveckling i % = tidsviktad avkastning (TWR) från periodens start. I kr = avkastning × värdet vid start.
+- Sparmål: målbelopp och antagen avkastning sätts av användaren i Inställningar. Prognosen räknar med månadsinsättningen. Mockupen använder 1 000 000 kr och 8 % per år som platshållare.
+
+**Inte klart än:** detaljsidor för korten 638 kr, Simulera, Historik och Senaste affärer (länkar i dag till `terrakotta/modell.html`). Natt-versioner av kortsidorna saknas – de byggs med samma färgmappning som `natt/`.
